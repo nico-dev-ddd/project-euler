@@ -2,38 +2,24 @@
 Amicable number
 """
 
-import math
-
 from project_euler.shared.sum_divisors import sum_divisors
-
-# def sum_divisors(n: int) -> list:
-#     """_summary_
-
-#     Args:
-#         n (int): _description_
-
-#     Returns:
-#         list: _description_
-#     """
-#     limit = math.floor(math.sqrt(n)) + 1
-#     return sum(d + int(n / d) for d in range(2, limit) if n % d == 0 and d < limit) + 1
 
 
 def is_amicable_numbers(m: int, n: int) -> bool:
     """
-    Determine si deux nombres sont amicaux
+    Determine whether two numbers are amicable.
     """
     return sum_divisors(m) == n and sum_divisors(n) == m
 
 
 def amicable_numbers(limit: int) -> list:
-    """_summary_
+    """List all amicable pairs (m, n) with m < n < limit.
 
     Args:
-        limit (int): _description_
+        limit: exclusive upper bound for m.
 
     Returns:
-        list: _description_
+        A list of (m, n) amicable pairs.
     """
     amicable_nb = list()
     for m in range(limit):
@@ -44,13 +30,13 @@ def amicable_numbers(limit: int) -> list:
 
 
 def sum_amicable_numbers(limit: int) -> int:
-    """_summary_
+    """Sum of all numbers in amicable pairs below limit.
 
     Args:
-        limit (int): _description_
+        limit: exclusive upper bound for the amicable pairs.
 
     Returns:
-        int: _description_
+        The sum of all amicable numbers under limit.
     """
     return sum([m + n for m, n in amicable_numbers(limit)])
 

@@ -1,0 +1,3 @@
+{
+   "python.analysis.typeCheckingMode": "standard" // off | basic | standard | strict
+}

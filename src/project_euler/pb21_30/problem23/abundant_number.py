@@ -4,13 +4,13 @@ from project_euler.shared.sum_divisors import sum_divisors
 
 
 def is_abundant_number(n: int) -> bool:
-    """_summary_
+    """Whether n is smaller than the sum of its proper divisors.
 
     Args:
-        n (int): _description_
+        n: the number to test.
 
     Returns:
-        bool: _description_
+        True if n is an abundant number.
     """
     return sum_divisors(n) > n
 

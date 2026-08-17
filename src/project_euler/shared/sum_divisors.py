@@ -1,18 +1,18 @@
 """
-Somme des diviseurs
+Sum of divisors
 """
 
 import math
 
 
-def sum_divisors(n: int) -> list:
-    """_summary_
+def sum_divisors(n: int) -> int:
+    """Sum of the proper divisors of n (divisors of n excluding n itself).
 
     Args:
-        n (int): _description_
+        n: the number to sum divisors of.
 
     Returns:
-        list: _description_
+        The sum of the proper divisors of n.
     """
     limit = math.floor(math.sqrt(n)) + 1
     return (

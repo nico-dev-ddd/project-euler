@@ -11,15 +11,15 @@ def permutations(prefix: str, elements: set[str]):
         yield from permutations(prefix + element, elements - {element})
 
 
-def ith_permutation(elements: list, i: int) -> int:
-    """_summary_
+def ith_permutation(elements: list, i: int) -> str:
+    """The i-th permutation (1-indexed) of elements in lexicographic order.
 
     Args:
-        elements (set): _description_
-        i (int): _description_
+        elements: the values to permute.
+        i: the 1-indexed rank of the permutation to return.
 
     Returns:
-        int: _description_
+        The i-th permutation, as a concatenated string.
     """
 
     for k, p in enumerate(permutations("", {str(e) for e in elements}), start=1):

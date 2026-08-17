@@ -17,7 +17,7 @@ def nth_prime_number(n: int) -> int:
 
 
 if __name__ == "__main__":
-    print("10eme premier : ", nth_prime_number(10))
-    print("100eme premier : ", nth_prime_number(100))
-    print("1000eme premier : ", nth_prime_number(1000))
-    print("10001eme premier : ", nth_prime_number(10001))
+    print("10th prime: ", nth_prime_number(10))
+    print("100th prime: ", nth_prime_number(100))
+    print("1000th prime: ", nth_prime_number(1000))
+    print("10001th prime: ", nth_prime_number(10001))
