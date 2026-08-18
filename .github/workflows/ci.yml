@@ -57,36 +57,7 @@ jobs:
             --html=site/report.html --self-contained-html
 
       - name: 🏷️ Build coverage badge and landing page
-        run: |
-          python - <<'PY'
-          import json
-          from pathlib import Path
-
-          totals = json.loads(Path("site/coverage.json").read_text())["totals"]
-          percent = round(totals["percent_covered"])
-          color = "brightgreen" if percent >= 90 else "green" if percent >= 75 else "yellow" if percent >= 50 else "red"
-
-          Path("site/badge.json").write_text(json.dumps({
-              "schemaVersion": 1,
-              "label": "coverage",
-              "message": f"{percent}%",
-              "color": color,
-          }))
-
-          Path("site/index.html").write_text(f"""<!doctype html>
-          <html lang="fr">
-          <head><meta charset="utf-8"><title>project-euler — rapports</title></head>
-          <body>
-            <h1>project-euler</h1>
-            <p>Couverture de tests : <strong>{percent}%</strong></p>
-            <ul>
-              <li><a href="report.html">Rapport de tests</a></li>
-              <li><a href="coverage/index.html">Rapport de couverture</a></li>
-            </ul>
-          </body>
-          </html>
-          """)
-          PY
+        run: python .github/scripts/build_pages_report.py
 
       - name: 📦 Upload pages artifact
         uses: actions/upload-pages-artifact@v3
@@ -96,3 +67,4 @@ jobs:
       - name: 🚀 Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
