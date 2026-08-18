@@ -1,9 +1,9 @@
-from project_euler.shared.prime_numbers import list_prime_numbers
+from project_euler.shared.primes.prime_numbers import Prime
 
 
 def list_prime_factors(n: int) -> list:
     l_primes = []
-    for p in list_prime_numbers(n):
+    for p in Prime.list_prime_numbers(n):
         if n % p == 0:
             l_primes.append(p)
     return l_primes

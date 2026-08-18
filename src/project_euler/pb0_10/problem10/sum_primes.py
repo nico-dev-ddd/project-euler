@@ -1,8 +1,8 @@
-from project_euler.shared.prime_numbers import list_prime_numbers
+from project_euler.shared.primes.prime_numbers import Prime
 
 
 def sum_primes(limit):
-    return sum(list_prime_numbers(limit))
+    return sum(Prime.list_prime_numbers(limit))
 
 
 if __name__ == "__main__":

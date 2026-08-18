@@ -2,7 +2,7 @@
 Amicable number
 """
 
-from project_euler.shared.sum_divisors import sum_divisors
+from project_euler.shared.sum.sum_divisors import sum_divisors
 
 
 def is_amicable_numbers(m: int, n: int) -> bool:

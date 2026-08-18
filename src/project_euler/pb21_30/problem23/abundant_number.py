@@ -1,6 +1,6 @@
 from timeit import timeit
 
-from project_euler.shared.sum_divisors import sum_divisors
+from project_euler.shared.sum.sum_divisors import sum_divisors
 
 
 def is_abundant_number(n: int) -> bool:

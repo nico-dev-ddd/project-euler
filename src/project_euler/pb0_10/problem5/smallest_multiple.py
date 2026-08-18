@@ -1,11 +1,11 @@
 import math
 
-from project_euler.shared.prime_numbers import list_prime_numbers
+from project_euler.shared.primes.prime_numbers import Prime
 
 
 def smallest_multiple(n: int) -> int:
     list_factors = []
-    for prime in list_prime_numbers(n):
+    for prime in Prime.list_prime_numbers(n):
         puissance = math.floor(math.log(n, prime))
         list_factors.append(prime**puissance)
     return math.prod(list_factors)
