@@ -1,9 +1,9 @@
 import pytest
 
 from project_euler.pb11_20.problem17.number_letter_counts import (
-    write_number,
-    count_total_letters,
     count_letters,
+    count_total_letters,
+    write_number,
 )
 
 

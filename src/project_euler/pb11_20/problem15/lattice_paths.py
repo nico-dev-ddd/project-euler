@@ -12,9 +12,9 @@ class LatticePaths:
             return m + 1
         if m == 1:
             return n + 1
-        if (n, m) in self.cache.keys():
+        if (n, m) in self.cache:
             return self.get(n, m)
-        if (m, n) in self.cache.keys():
+        if (m, n) in self.cache:
             return self.get(m, n)
         nb = self.nb_paths(n - 1, m) + self.nb_paths(n, m - 1)
         self.set(n, m, nb)

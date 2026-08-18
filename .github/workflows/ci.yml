@@ -1,0 +1,97 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 👷 Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          python-version-file: ".python-version"
+
+      - name: 👷Install dependencies
+        run: uv sync --all-groups
+
+      - name: 🎨 Check formatting
+        run: uv run ruff format --check .
+
+      - name: 🚨 Lint (includes import order)
+        run: uv run ruff check .
+
+      - name: 🧪 Test
+        run: uv run pytest
+
+  pages:
+    needs: check
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 👷 Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          python-version-file: ".python-version"
+
+      - name: 👷 Install dependencies
+        run: uv sync --all-groups
+
+      - name: 🧪📊 Generate test and coverage reports
+        run: |
+          uv run pytest \
+            --cov=src --cov-report=html:site/coverage --cov-report=json:site/coverage.json \
+            --html=site/report.html --self-contained-html
+
+      - name: 🏷️ Build coverage badge and landing page
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          totals = json.loads(Path("site/coverage.json").read_text())["totals"]
+          percent = round(totals["percent_covered"])
+          color = "brightgreen" if percent >= 90 else "green" if percent >= 75 else "yellow" if percent >= 50 else "red"
+
+          Path("site/badge.json").write_text(json.dumps({
+              "schemaVersion": 1,
+              "label": "coverage",
+              "message": f"{percent}%",
+              "color": color,
+          }))
+
+          Path("site/index.html").write_text(f"""<!doctype html>
+          <html lang="fr">
+          <head><meta charset="utf-8"><title>project-euler — rapports</title></head>
+          <body>
+            <h1>project-euler</h1>
+            <p>Couverture de tests : <strong>{percent}%</strong></p>
+            <ul>
+              <li><a href="report.html">Rapport de tests</a></li>
+              <li><a href="coverage/index.html">Rapport de couverture</a></li>
+            </ul>
+          </body>
+          </html>
+          """)
+          PY
+
+      - name: 📦 Upload pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+      - name: 🚀 Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

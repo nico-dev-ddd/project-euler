@@ -36,7 +36,7 @@ def write_number(n: int) -> str:
         return "one hundred"
     if n == 1000:
         return "one thousand"
-    if n in numbers.keys():
+    if n in numbers:
         return numbers[n]
     hundreds = n // 100
     return (
@@ -49,7 +49,7 @@ def write_number(n: int) -> str:
 def write_under_hundred(n: int) -> str:
     if n == 0:
         return ""
-    if n in numbers.keys():
+    if n in numbers:
         return numbers[n]
     dozen = n // 10
     return numbers[dozen * 10] + "-" + numbers[n % 10]
