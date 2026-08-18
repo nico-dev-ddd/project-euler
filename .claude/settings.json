@@ -12,5 +12,10 @@
       "Bash(git diff:*)",
       "Bash(git log:*)"
     ]
-  }
+  },
+  "python.analysis.autoImportCompletions": true,
+  "python.analysis.fixAll": [
+    "source.unusedImports"
+  ],
+  "editor.defaultFormatter": "black"
 }

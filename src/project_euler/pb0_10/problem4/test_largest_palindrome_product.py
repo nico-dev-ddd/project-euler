@@ -1,8 +1,8 @@
 import pytest
 
 from project_euler.pb0_10.problem4.largest_palindrome_product import (
-    largest_palindrome_product,
     is_a_palindrome,
+    largest_palindrome_product,
 )
 
 

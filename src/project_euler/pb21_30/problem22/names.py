@@ -1,6 +1,6 @@
+import csv
 import string
 from urllib.request import urlopen
-import csv
 
 
 def score(name: str) -> int:
