@@ -2,7 +2,6 @@ import math
 
 
 class Grid:
-
     def __init__(self, cells: list[list[int]], nb_adjacent: int):
         self.dim = len(cells)
         self.cells = cells
