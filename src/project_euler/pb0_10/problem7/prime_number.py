@@ -6,7 +6,7 @@ What is the 10 001st prime number ?
 
 import math
 
-from project_euler.shared.prime_numbers import list_prime_numbers
+from project_euler.shared.primes.prime_numbers import Prime
 
 
 def nth_prime_number(n: int) -> int:
@@ -14,7 +14,7 @@ def nth_prime_number(n: int) -> int:
         return 2
     if n == 2:
         return 3
-    return list_prime_numbers(n * (math.log(n, 2) ** 2))[n - 1]
+    return Prime.list_prime_numbers(n * (math.log(n, 2) ** 2))[n - 1]
 
 
 if __name__ == "__main__":
