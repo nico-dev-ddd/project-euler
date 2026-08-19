@@ -1,33 +1,32 @@
 import math
 
-class Prime:  
 
+class Prime:
     @staticmethod
     def list_prime_numbers(limit: float) -> list:
         """
         :param limit: bounded limit of prime numbers
         :return: list of prime numbers
         """
-        limit = math.floor(limit)
-        if limit == 1:
+        limite = math.floor(limit)
+        if limite < 2:
             return []
-        if limit == 2:
-            return [2]
-        sqrt = math.sqrt(limit)
-        l_primes = list(range(2, limit + 1))
-        k = 2
-        rk = 0
-        while k <= sqrt:
-            l_primes = [p for p in l_primes if p == k or p % k != 0]
-            rk += 1
-            k = l_primes[rk]
-        return l_primes
+        est_premier = bytearray([1]) * (limite + 1)
+        est_premier[0:2] = b"\x00\x00"
+        for candidat in range(2, math.isqrt(limite) + 1):
+            if est_premier[candidat]:
+                nb_multiples = (limite - candidat * candidat) // candidat + 1
+                est_premier[candidat * candidat :: candidat] = bytearray(nb_multiples)
+        return [n for n in range(limite + 1) if est_premier[n]]
 
     @staticmethod
-    def is_prime(n:int)->bool:
+    def is_prime(n: int) -> bool:
+        if n == 1:
+            return False
         if n == 2 or n == 3:
-            return True 
-        return False
+            return True
+        return all(n % p != 0 for p in Prime.list_prime_numbers(math.sqrt(n)))
+
 
 if __name__ == "__main__":
-    print(Prime.list_prime_numbers(2))
+    print(Prime.list_prime_numbers(10000))
