@@ -7,7 +7,7 @@ from project_euler.pb21_30.problem27.quadratic_primes import (
 
 @pytest.mark.parametrize(
     "a_max,b_max, expected",
-    [(0, 1, 0), (1, 3, -3), (1, 4, -3), (2, 41, 41), (79, 1601, -126479)],
+    [(0, 1, 0), (1, 3, -3), (1, 4, -3), (2, 41, -41), (79, 1601, -126479)],
 )
 def test_tdd_quadratic_primes(a_max: int, b_max: int, expected: int) -> None:
     assert (
