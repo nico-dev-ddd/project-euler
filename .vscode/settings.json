@@ -5,9 +5,9 @@
    ],
    "python.testing.unittestEnabled": false,
    "python.testing.pytestEnabled": true, // off | basic | standard | strict
+   "python.defaultInterpreterPath": "${workspaceFolder}/.venv/Scripts/python.exe",
    "ruff.enable": true,
    "ruff.lint.enable": true,
-   "ruff.lint.run": "onType",
    "[python]": {
       "editor.defaultFormatter": "charliermarsh.ruff",
       "editor.formatOnSave": true,
