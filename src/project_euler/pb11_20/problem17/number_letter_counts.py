@@ -59,7 +59,7 @@ def write_hundreds(hundreds: int) -> str:
     return numbers[hundreds] + " " + numbers[100] if hundreds > 0 else ""
 
 
-def clean_number(param):
+def clean_number(param: str) -> str:
     return param.replace("-", "").replace(" ", "")
 
 

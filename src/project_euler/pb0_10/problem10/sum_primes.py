@@ -1,7 +1,7 @@
 from project_euler.shared.primes.prime_numbers import Prime
 
 
-def sum_primes(limit):
+def sum_primes(limit: int) -> int:
     return sum(Prime.list_prime_numbers(limit))
 
 

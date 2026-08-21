@@ -1,10 +1,10 @@
-def prepare_values(file_name):
+def prepare_values(file_name: str) -> list[list[int]]:
     with open(file_name) as file:
         values_string = file.readlines()
     return [list(int(val) for val in line.strip().split()) for line in values_string]
 
 
-def max_path_sum(pyramid):
+def max_path_sum(pyramid: list[list[int]]) -> int:
     max_sum = pyramid
     for stage in range(len(pyramid) - 1, 0, -1):
         for i in range(len(pyramid[stage - 1])):

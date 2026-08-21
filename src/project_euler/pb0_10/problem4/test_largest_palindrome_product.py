@@ -11,6 +11,6 @@ def test_is_a_palindrome(n: int, expected: bool) -> None:
     assert is_a_palindrome(n) == expected
 
 
-def test_largest_palindrome_product():
+def test_largest_palindrome_product() -> None:
     assert largest_palindrome_product(1) == 9
     assert largest_palindrome_product(2) == 9009

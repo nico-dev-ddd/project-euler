@@ -1,10 +1,10 @@
 class LatticePaths:
     cache = {(1, 1): 2}
 
-    def get(self, n, m):
+    def get(self, n: int, m: int) -> int:
         return self.cache[n, m]
 
-    def set(self, n, m, value):
+    def set(self, n: int, m: int, value: int) -> None:
         self.cache[n, m] = value
 
     def nb_paths(self, n: int, m: int) -> int:

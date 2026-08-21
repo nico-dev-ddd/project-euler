@@ -10,5 +10,5 @@ from project_euler.pb11_20.problem13.large_sum import ten_first_digit_of_large_s
         ([1234567890123456789, 1234567890123456789], 1234567890 * 2),
     ],
 )
-def test_sum_large_number(numbers, expected):
+def test_sum_large_number(numbers: list[int], expected: int) -> None:
     assert ten_first_digit_of_large_sum(numbers) == expected

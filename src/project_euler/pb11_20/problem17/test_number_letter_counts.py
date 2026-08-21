@@ -32,7 +32,7 @@ from project_euler.pb11_20.problem17.number_letter_counts import (
         (1000, "one thousand"),
     ],
 )
-def test_write_number(n, expected):
+def test_write_number(n: int, expected: str) -> None:
     assert write_number(n) == expected
 
 
@@ -40,7 +40,7 @@ def test_write_number(n, expected):
     "limit, expected",
     [(5, 19), (6, 22), (7, 27), (8, 32)],
 )
-def test_count_total_letters(limit, expected):
+def test_count_total_letters(limit: int, expected: int) -> None:
     assert count_total_letters(limit) == expected
 
 
@@ -48,5 +48,5 @@ def test_count_total_letters(limit, expected):
     "n, expected",
     [(1, 3), (342, 23), (115, 20)],
 )
-def test_count_letters(n, expected):
+def test_count_letters(n: int, expected: int) -> None:
     assert count_letters(n) == expected

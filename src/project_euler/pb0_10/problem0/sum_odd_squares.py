@@ -1,4 +1,4 @@
-def sum_odd_squares(limit: int):
+def sum_odd_squares(limit: int) -> int:
     sum_squares = 0
     for n in range(1, limit + 1):
         if n % 2 == 1:

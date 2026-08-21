@@ -1,4 +1,4 @@
-def power_digit_sum(n, m):
+def power_digit_sum(n: int, m: int) -> int:
     return sum(int(digit) for digit in str(n**m))
 
 

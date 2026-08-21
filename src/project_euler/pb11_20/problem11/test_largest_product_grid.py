@@ -13,7 +13,7 @@ from project_euler.pb11_20.problem11.largest_product_grid import Grid
         ("1 3 4\n2 1 5\n7 5 8", 2, 40),
     ],
 )
-def test_max_product_line(cells, nb_adjacent, expected):
+def test_max_product_line(cells: str, nb_adjacent: int, expected: int) -> None:
     # GIVEN
     grid = Grid.build_grid(cells, nb_adjacent)
     # WHEN
@@ -54,7 +54,7 @@ def test_max_product_line(cells, nb_adjacent, expected):
         ),
     ],
 )
-def test_max_product_column(cells, nb_adjacent, expected):
+def test_max_product_column(cells: str, nb_adjacent: int, expected: int) -> None:
     # GIVEN
     grid = Grid.build_grid(cells, nb_adjacent)
     # WHEN
@@ -108,7 +108,7 @@ def test_max_product_column(cells, nb_adjacent, expected):
         ),
     ],
 )
-def test_max_product_diagonal(cells, nb_adjacent, expected):
+def test_max_product_diagonal(cells: str, nb_adjacent: int, expected: int) -> None:
     # GIVEN
     grid = Grid.build_grid(cells, nb_adjacent)
     # WHEN
@@ -159,7 +159,7 @@ def test_max_product_diagonal(cells, nb_adjacent, expected):
         ),
     ],
 )
-def test_max_product_anti_diagonal(cells, nb_adjacent, expected):
+def test_max_product_anti_diagonal(cells: str, nb_adjacent: int, expected: int) -> None:
     # GIVEN
     grid = Grid.build_grid(cells, nb_adjacent)
     # WHEN

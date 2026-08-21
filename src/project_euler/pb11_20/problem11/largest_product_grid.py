@@ -2,13 +2,13 @@ import math
 
 
 class Grid:
-    def __init__(self, cells: list[list[int]], nb_adjacent: int):
+    def __init__(self, cells: list[list[int]], nb_adjacent: int) -> None:
         self.dim = len(cells)
         self.cells = cells
         self.nb_adjacent = nb_adjacent
 
     @classmethod
-    def build_grid(cls, str_grid: str, nb_adjacent) -> "Grid":
+    def build_grid(cls, str_grid: str, nb_adjacent: int) -> "Grid":
         cells = [
             [int(cell) for cell in line.strip().split()]
             for line in str_grid.splitlines()
@@ -16,7 +16,7 @@ class Grid:
         ]
         return Grid(cells, nb_adjacent)
 
-    def cell(self, i, j) -> int:
+    def cell(self, i: int, j: int) -> int:
         return self.cells[i][j]
 
     def max_product(self) -> int:
@@ -36,7 +36,7 @@ class Grid:
             for j in range(self.dim)
         )
 
-    def max_product_diagonal(self):
+    def max_product_diagonal(self) -> int:
         return max(
             max(
                 self.max_product_list(
@@ -49,7 +49,7 @@ class Grid:
             for k in range(self.dim - self.nb_adjacent + 1)
         )
 
-    def max_product_anti_diagonal(self):
+    def max_product_anti_diagonal(self) -> int:
         return max(
             max(
                 self.max_product_list([self.cell(i, k - 1 - i) for i in range(k)]),

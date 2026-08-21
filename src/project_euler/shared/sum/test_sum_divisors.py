@@ -13,5 +13,5 @@ from project_euler.shared.sum.sum_divisors import sum_divisors
         (28, 28),
     ],
 )
-def test_sum_divisors(n, expected):
+def test_sum_divisors(n: int, expected: int) -> None:
     assert sum_divisors(n) == expected

@@ -1,7 +1,9 @@
+from collections.abc import Callable
+
 from project_euler.shared.primes.prime_numbers import Prime
 
 
-def quadratic_function(a, b):
+def quadratic_function(a: int, b: int) -> Callable[[int], int]:
     return lambda n: n * n + a * n + b
 
 

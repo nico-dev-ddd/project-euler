@@ -13,6 +13,6 @@ from project_euler.pb11_20.problem18.maximum_path_sum_i import Pyramid
         ([(3,), (7, 4), (2, 4, 6), (8, 5, 9, 3)], 23),
     ],
 )
-def test_maximum_path_sum(pyramid, expected):
+def test_maximum_path_sum(pyramid: list[tuple[int, ...]], expected: int) -> None:
     pyramid = Pyramid(pyramid)
     assert pyramid.max_path_sum() == expected

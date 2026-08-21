@@ -7,11 +7,13 @@ from project_euler.pb0_10.problem8.largest_product import largest_product
     ["digits", "nb_of_adjacent_digits", "expected"],
     [("1", 1, 1), ("2", 1, 2), ("13", 1, 3), ("123", 2, 6), ("331", 2, 9)],
 )
-def test_largest_product(digits, nb_of_adjacent_digits, expected):
+def test_largest_product(
+    digits: str, nb_of_adjacent_digits: int, expected: int
+) -> None:
     assert largest_product(digits, nb_of_adjacent_digits) == expected
 
 
-def test_largest_product_2():
+def test_largest_product_2() -> None:
     digits = """73167176531330624919225119674426574742355349194934
 96983520312774506326239578318016984801869478851843
 85861560789112949495459501737958331952853208805511

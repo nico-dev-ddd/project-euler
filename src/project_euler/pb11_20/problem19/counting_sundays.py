@@ -19,7 +19,7 @@ How many Sundays fell on the first of the month during the twentieth century
 from datetime import datetime
 
 
-def counting_sundays():
+def counting_sundays() -> int:
     nb_sundays = 0
     for year in range(1901, 2001):
         for month in range(1, 13):

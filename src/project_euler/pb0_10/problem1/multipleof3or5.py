@@ -1,4 +1,4 @@
-def sum_multiples(limit: int):
+def sum_multiples(limit: int) -> int:
     sum_mult = 0
     for current_number in range(1, limit):
         if current_number % 3 == 0 or current_number % 5 == 0:

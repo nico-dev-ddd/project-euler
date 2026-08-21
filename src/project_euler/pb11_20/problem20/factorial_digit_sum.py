@@ -1,7 +1,7 @@
 import math
 
 
-def sum_digits_factorial(n):
+def sum_digits_factorial(n: int) -> int:
     return sum(int(d) for d in str(math.factorial(n)))
 
 

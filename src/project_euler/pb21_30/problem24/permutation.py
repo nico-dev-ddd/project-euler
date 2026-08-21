@@ -2,8 +2,10 @@
 Permutation
 """
 
+from collections.abc import Iterator
 
-def permutations(prefix: str, elements: set[str]):
+
+def permutations(prefix: str, elements: set[str]) -> Iterator[str]:
     if len(elements) == 1:
         yield prefix + next(iter(elements))
         return
