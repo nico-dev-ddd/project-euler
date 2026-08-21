@@ -1,3 +1,5 @@
+from collections.abc import Sequence
+
 import pytest
 
 from project_euler.pb61_70.problem67.maximum_path_sum_ii import max_path_sum
@@ -32,5 +34,5 @@ from project_euler.pb61_70.problem67.maximum_path_sum_ii import max_path_sum
         ),
     ],
 )
-def test_maximum_path_sum(pyramid, expected):
+def test_maximum_path_sum(pyramid: list[Sequence[int]], expected: int) -> None:
     assert max_path_sum(pyramid) == expected

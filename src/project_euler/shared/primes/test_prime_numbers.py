@@ -41,3 +41,11 @@ def test_list_prime_numbers(limit: int, expected: list) -> None:
 )
 def test_is_prime(n: int, expected: bool) -> None:
     assert Prime.is_prime(n) == expected
+
+
+@pytest.mark.parametrize(
+    "n, expected",
+    [(2, {2: 1}), (3, {3: 1}), (6, {2: 1, 3: 1}), (72, {2: 3, 3: 2}), (17, {17: 1})],
+)
+def test_decompose_prime_factors(n: int, expected: bool) -> None:
+    assert Prime.decompose_prime_factors(n) == expected

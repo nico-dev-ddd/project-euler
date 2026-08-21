@@ -2,7 +2,7 @@ class Pyramid:
     child1 = None
     child2 = None
 
-    def __init__(self, pyramid_values):
+    def __init__(self, pyramid_values: list[tuple[int, ...]]) -> None:
         self.value = pyramid_values[0][0]
         dim = len(pyramid_values)
         if dim == 1:
@@ -11,7 +11,7 @@ class Pyramid:
         self.child2 = Pyramid([v[1 : (len(v))] for v in pyramid_values[1:]])
 
     @staticmethod
-    def build_of_str(values_str: str):
+    def build_of_str(values_str: str) -> "Pyramid":
         return Pyramid(
             [
                 tuple(int(val) for val in line.strip().split(" "))
@@ -20,7 +20,7 @@ class Pyramid:
             ]
         )
 
-    def max_path_sum(self):
+    def max_path_sum(self) -> int:
         if self.child1:
             return self.value + max(
                 self.child1.max_path_sum(), self.child2.max_path_sum()

@@ -6,6 +6,7 @@
    "python.testing.unittestEnabled": false,
    "python.testing.pytestEnabled": true, // off | basic | standard | strict
    "python.defaultInterpreterPath": "${workspaceFolder}/.venv/Scripts/python.exe",
+   "python.analysis.autoImportCompletions": true,
    "ruff.enable": true,
    "ruff.lint.enable": true,
    "[python]": {

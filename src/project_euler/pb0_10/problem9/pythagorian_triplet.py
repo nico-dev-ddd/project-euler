@@ -6,7 +6,7 @@ class Triplet:
     b: int
     c: int
 
-    def __init__(self, a, b, c):
+    def __init__(self, a: int, b: int, c: int) -> None:
         self.a = a
         self.b = b
         self.c = c
@@ -17,7 +17,7 @@ class Triplet:
     def product(self) -> int:
         return self.a * self.b * self.c
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"Triplet({str(self.a)}, {str(self.b)}, {str(self.c)})"
 
 

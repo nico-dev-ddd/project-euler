@@ -1,7 +1,7 @@
 from project_euler.pb0_10.problem1.multipleof3or5 import sum_multiples
 
 
-def test_sum_multiples():
+def test_sum_multiples() -> None:
     assert sum_multiples(1) == 0
     assert sum_multiples(2) == 0
     assert sum_multiples(3) == 0
